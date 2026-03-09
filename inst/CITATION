@@ -1,0 +1,17 @@
+citHeader("To cite the eClosure package in publications use:")
+
+bibentry(bibtype="Article",
+         title = "L1 penalized estimation in the Cox proportional hazards model",
+         author = c(person(given = "Ziyu", family = "Xu"),
+                    person(given = "Aldo", family = "Solari"),
+                    person(given = "Lasse", family = "Fisher"),
+                    person(given = "Rianne", family = "de Heide"),
+                    person(given = "Aaditya", family = "Ramdas"),
+                    person(given = "Jelle", family = "Goeman")),
+         journal = "arXiv preprint arXiv:2509.02517",
+         year = 2025,
+         textVersion =
+           paste("Xu, Z., Solari, A., Fischer, L., de Heide, R., Ramdas, A., & Goeman, J. (2025).
+                 Bringing Closure to False Discovery Rate Control: A General Principle for Multiple Testing.
+                 arXiv preprint arXiv:2509.02517.")
+)
