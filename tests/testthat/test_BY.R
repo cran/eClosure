@@ -252,3 +252,32 @@ test_that("BH example", {
   expect_equal(closedBY(p, alpha=0.05), 3L)
   expect_equal(closedBY(p, alpha=0.10), 5L)
 })
+
+# ===========================================================================
+# 6. REGRESSION TEST: heap-buffer-overflow in cBY_check_cpp (fixed in 0.9.3)
+#
+# The bug: e_out was allocated with size m-r+1, but the loop can access
+# slot v+1 where v = s - minu.  When s = m and minu = 1 (i.e. r = 1),
+# v+1 = m, which exceeds the allocated size.
+#
+# To reliably trigger this we need:
+#   - r = 1  (so minu = max(1, s-(m-1)) = 1 for all s <= m)
+#   - s = m  (so v = m-1 and slot v+1 = m is accessed)
+#   - the sufficient-condition shortcut does NOT fire
+#     (i.e. p_in[1] * m * H(m) > alpha, so p_in is not tiny)
+#   - the set is NOT significant (so the loop reaches the e_out subtraction)
+#
+# A single moderately small p-value in a sea of large ones achieves this.
+# ===========================================================================
+
+test_that("regression: no heap-buffer-overflow when r=1 and s=m (was cBY.cpp:222)", {
+  # m = 10, r = 1: set contains only the smallest p-value.
+  # p_in = 0.03 is small enough to pass the BY threshold check but large
+  # enough that the sufficient-condition shortcut does not fire at s = m,
+  # forcing the code to reach the e_out[v+1] access with v+1 = m.
+  m <- 10
+  p <- c(rep(0.5, m - 1), 0.03)   # last entry is the set member
+  expect_no_error(closedBY(p, set = m, alpha = 0.05))
+  expect_no_error(closedBY(p, set = m, alpha = 0.05, approximate = FALSE))
+})
+

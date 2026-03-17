@@ -83,9 +83,10 @@ List cBY_check_cpp(NumericVector p,   // length m, layout described above
   double invalpha = 1.0 / alpha;
 
   // e_out[i+1] caches the e-value for the (i+1)-th largest p_out entry
-  // (1-indexed logic from R preserved: e_out has size m-r+1, index 0 unused)
-  // We allocate m-r+1 elements; index 0 is a sentinel (always 0).
-  std::vector<double> e_out(m - r + 1, 0.0);
+  // (1-indexed: index 0 is a sentinel, always 0).
+  // The maximum slot ever written or read is v+1 where v = s - minu.
+  // In the worst case s = m, minu = 1, giving v+1 = m, so we need m+1 slots.
+  std::vector<double> e_out(m + 1, 0.0);
 
   // ------------------------------------------------------------------
   // Breadth-first bisection queue over s ∈ [1, m]

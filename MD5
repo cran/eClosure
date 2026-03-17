@@ -1,5 +1,5 @@
-d6024f1deb579101decce3d42f9fd104 *ChangeLog
-e84235c8be45325ff370dd9d945d7688 *DESCRIPTION
+9cf173b31125fb0f8fdd3b848e907b11 *ChangeLog
+b701837b95498d1952625b98ec692505 *DESCRIPTION
 0e9338cc6041cfde9fc474396b4c3be0 *NAMESPACE
 feadd18f3c9d0856731a72628fe860e6 *R/RcppExports.R
 8f09ec0989d92318eb6b247930840ff8 *R/cBY_wrapper.R
@@ -10,8 +10,8 @@ e703713d9e643f2a2110bd70502e0b44 *inst/CITATION
 772b18f88116bfe366a0cbcc3340a94a *man/closedeBH.Rd
 5309532c317870b6b0623984a9fc1e14 *man/eClosure.Rd
 3217eaa81469c1497d8cb80ed869cdab *src/RcppExports.cpp
-4142e706332ad7e3204861c783056cf0 *src/cBY.cpp
+67de606f8cf707c717773611323a994d *src/cBY.cpp
 deee00f4c0a809f5fee9b0335879b5f3 *src/ceBH.cpp
 d6a430769d79262af096cc0b34dfb28f *tests/testthat.R
-aaea102a90a386eba8381739418c4bcd *tests/testthat/test_BY.R
+921e5ca0654cfc6b311b93d5419a884a *tests/testthat/test_BY.R
 bd767e2de784998670586fbdc88cfa95 *tests/testthat/test_ceBH.R
