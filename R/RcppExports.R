@@ -9,6 +9,26 @@ cBY_check_cpp <- function(p, r, harmonic, warm_s, alpha) {
     .Call(`_eClosure_cBY_check_cpp`, p, r, harmonic, warm_s, alpha)
 }
 
+su_cpp <- function(p, alpha) {
+    .Call(`_eClosure_su_cpp`, p, alpha)
+}
+
+find_largest_r_cpp <- function(p, alpha) {
+    .Call(`_eClosure_find_largest_r_cpp`, p, alpha)
+}
+
+cSu_check_sep_cpp <- function(p, r, warm_failing_u, warm_cache, alpha) {
+    .Call(`_eClosure_cSu_check_sep_cpp`, p, r, warm_failing_u, warm_cache, alpha)
+}
+
+cSu_check_cpp <- function(p, r, alpha) {
+    .Call(`_eClosure_cSu_check_cpp`, p, r, alpha)
+}
+
+find_largest_r_approximate_cpp <- function(p, alpha) {
+    .Call(`_eClosure_find_largest_r_approximate_cpp`, p, alpha)
+}
+
 largestmeanconsistent_cpp <- function(e, alpha) {
     .Call(`_eClosure_largestmeanconsistent_cpp`, e, alpha)
 }

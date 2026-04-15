@@ -7,3 +7,6 @@
 
 0.9.3
 - repaired initialization of e_out in cBY.cpp
+
+0.9.4
+- added closedSu
