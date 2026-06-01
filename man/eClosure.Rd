@@ -14,8 +14,10 @@ framework for simultaneous FDR control in multiple hypothesis testing.
 
 The two core functions are:
 \itemize{
+\item \code{\link{closedBH}} — applies the closed BH procedure
 \item \code{\link{closedeBH}} — applies the closed eBH procedure
 \item \code{\link{closedBY}} — applies the closed BY procedure
+\item \code{\link{closedSu}} — applies the closed Su procedure
 }
 }
 

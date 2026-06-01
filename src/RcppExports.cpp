@@ -10,6 +10,30 @@ Rcpp::Rostream<true>&  Rcpp::Rcout = Rcpp::Rcpp_cout_get();
 Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
 #endif
 
+// cBH_cpp
+int cBH_cpp(NumericVector p_in, double alpha);
+RcppExport SEXP _eClosure_cBH_cpp(SEXP p_inSEXP, SEXP alphaSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericVector >::type p_in(p_inSEXP);
+    Rcpp::traits::input_parameter< double >::type alpha(alphaSEXP);
+    rcpp_result_gen = Rcpp::wrap(cBH_cpp(p_in, alpha));
+    return rcpp_result_gen;
+END_RCPP
+}
+// cBH_adjust_cpp
+NumericVector cBH_adjust_cpp(NumericVector p_in, bool cap);
+RcppExport SEXP _eClosure_cBH_adjust_cpp(SEXP p_inSEXP, SEXP capSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< NumericVector >::type p_in(p_inSEXP);
+    Rcpp::traits::input_parameter< bool >::type cap(capSEXP);
+    rcpp_result_gen = Rcpp::wrap(cBH_adjust_cpp(p_in, cap));
+    return rcpp_result_gen;
+END_RCPP
+}
 // BY_cpp
 int BY_cpp(NumericVector p, NumericVector harmonic, double alpha);
 RcppExport SEXP _eClosure_BY_cpp(SEXP pSEXP, SEXP harmonicSEXP, SEXP alphaSEXP) {
@@ -153,6 +177,8 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
+    {"_eClosure_cBH_cpp", (DL_FUNC) &_eClosure_cBH_cpp, 2},
+    {"_eClosure_cBH_adjust_cpp", (DL_FUNC) &_eClosure_cBH_adjust_cpp, 2},
     {"_eClosure_BY_cpp", (DL_FUNC) &_eClosure_BY_cpp, 3},
     {"_eClosure_cBY_check_cpp", (DL_FUNC) &_eClosure_cBY_check_cpp, 5},
     {"_eClosure_su_cpp", (DL_FUNC) &_eClosure_su_cpp, 2},
