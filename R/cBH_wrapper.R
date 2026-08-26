@@ -60,6 +60,10 @@
 #' sum(padj <= 0.05)             # matches closedBH(p, alpha = 0.05)
 #'
 #' @references
+#' Goeman, J. (2026).
+#' A Uniform Improvement of the Benjamini-Hochberg Procedure via e-Closure. 
+#' arXiv preprint arXiv:2606.01854.
+#' 
 #' Benjamini, Y., & Hochberg, Y. (1995). Controlling the false discovery rate:
 #' a practical and powerful approach to multiple testing.
 #' \emph{Journal of the Royal Statistical Society: Series B}, 57(1), 289–300.

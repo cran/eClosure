@@ -1,7 +1,7 @@
 citHeader("To cite the eClosure package in publications use:")
 
 bibentry(bibtype="Article",
-         title = "L1 penalized estimation in the Cox proportional hazards model",
+         title = "Bringing Closure to False Discovery Rate Control: A General Principle for Multiple Testing",
          author = c(person(given = "Ziyu", family = "Xu"),
                     person(given = "Aldo", family = "Solari"),
                     person(given = "Lasse", family = "Fisher"),
