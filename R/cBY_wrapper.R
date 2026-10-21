@@ -47,7 +47,7 @@ get_harmonic = function(m) {
 #' intersection hypothesis. A set \eqn{R} of hypotheses is closedBY-significant —
 #' and therefore a valid simultaneous rejection — if and only if, for every
 #' subset \eqn{S \subseteq [m]}, the local e-value exceeds
-#' \eqn{|S \cap R|/|R|\alpha}.
+#' \eqn{|S \cap R|/(|R|\alpha)}.
 #' This guarantees post-hoc FDR control: you may report any closedBY-significant
 #' set as your discovery set without inflating the FDR above \eqn{\alpha},
 #' even if the choice of set was data-driven.
@@ -132,10 +132,7 @@ get_harmonic = function(m) {
 #' Bringing closure to false discovery rate control: A general principle for
 #' multiple testing. arXiv preprint arXiv:2509.02517.
 #'
-#' @seealso
-#' [p.adjust()] for standard p-value-based non-simultaneous multiple testing corrections,
-#' including the BY procedure (`method = "BY"`).
-#' [closedeBH()] for the analogous procedure based on e-values.
+#' @seealso [closedBH()], [closedSu()], [closedeBH()], [eClosure]
 #'
 #' @export
 closedBY = function(p, set = NULL, alpha = 0.05, approximate = FALSE) {

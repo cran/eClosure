@@ -541,11 +541,17 @@ bool cSu_check_cpp(NumericVector p, int r, double alpha) {
 int find_largest_r_approximate_cpp(NumericVector p, double alpha) {
   int m = p.size();
   
-  // Lower bound: su_cpp already applies the ell_alpha correction internally,
-  // but here p is sorted decreasing and alpha is already alpha_su (passed from R).
-  // So we call su_cpp with the raw alpha to get the plain-BH lower bound at
-  // alpha/ell_alpha.  Equivalently: count BH rejections at alpha_su.
-  int min_r = su_cpp(p, alpha);
+  // Lower bound: the Su procedure, i.e. BH at alpha/ell_alpha.  alpha is
+  // already alpha_su = alpha/ell_alpha (applied in R), so this is plain BH
+  // at alpha.  Do NOT call su_cpp here: it applies ell_alpha a second time.
+  // (p is sorted decreasing.)
+  int min_r = 0;
+  for (int i = 0; i < m; ++i) {
+    if (p[i] * (double)m <= (double)(m - i) * alpha + SU_TOL) {
+      min_r = m - i;
+      break;
+    }
+  }
   
   if (min_r == m) return m;
   

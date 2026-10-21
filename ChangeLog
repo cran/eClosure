@@ -3,7 +3,7 @@
 
 0.9.2
 - Repaired some minus signs in TOLERANCE in cBY
-- Renamed cBY and ceBH to closed BY and closedeBH
+- Renamed cBY and ceBH to closedBY and closedeBH
 
 0.9.3
 - repaired initialization of e_out in cBY.cpp
@@ -15,4 +15,9 @@
 - added closedBH
 
 0.9.6
-- Updated CITATION file 
+- Updated CITATION file
+
+0.9-7
+- Fixed integer overflow error in closedeBH (Thanks to Yuxiao Jing for the bug report)
+- Fixed a bug in cSu, approximate applying the Lambert correction twice
+- Fixed some minor code and documentation errors

@@ -1,9 +1,9 @@
 #' eClosure: Multiple testing methods based on the e-Closure principle
 #'
-#' Provides functions for applying the closed Benjamini_Hochberg (BH), closed
-#' e-Benjamini-Hochberg (eBH), closed Benjamini-Yekutieli (BY)  and closed Su
+#' Provides functions for applying the closed Benjamini-Hochberg (BH), closed 
+#' e-Benjamini-Hochberg (eBH), closed Su and closed Benjamini-Yekutieli (BY) 
 #' procedures within the e-Closure
-#' framework for (simultaneous) FDR control in multiple hypothesis testing.
+#' framework for simultaneous FDR control in multiple hypothesis testing.
 #'
 #' @section Main functions:
 #' The two core functions are:
@@ -22,4 +22,8 @@
 #' Xu, Z., Solari, A., Fischer, L., de Heide, R., Ramdas, A., & Goeman, J. (2025).
 #' Bringing closure to false discovery rate control: A general principle for
 #' multiple testing. arXiv preprint arXiv:2509.02517.
+#' 
+#' Goeman, J. (2026).
+#' A Uniform Improvement of the Benjamini-Hochberg Procedure via e-Closure. 
+#' arXiv preprint arXiv:2606.01854.
 "_PACKAGE"

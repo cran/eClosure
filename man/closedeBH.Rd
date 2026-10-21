@@ -116,5 +116,5 @@ Bringing closure to false discovery rate control: A general principle for multip
 arXiv preprint arXiv:2509.02517.
 }
 \seealso{
-\code{\link[=p.adjust]{p.adjust()}} for non-simultaneous multiple testing corrections.
+\code{\link[=closedBH]{closedBH()}}, \code{\link[=closedBY]{closedBY()}}, \code{\link[=closedBY]{closedBY()}}, \link{eClosure}
 }

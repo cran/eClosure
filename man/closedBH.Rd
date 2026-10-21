@@ -3,7 +3,7 @@
 \name{closedBH}
 \alias{closedBH}
 \alias{closedBH.adjust}
-\title{Closed Benjamini-Hochberg procedure for simultaneous FDR control}
+\title{Closed Benjamini-Hochberg procedure for FDR control}
 \usage{
 closedBH(p, alpha = 0.05)
 
@@ -41,7 +41,8 @@ control.
 
 \code{closedBH.adjust()} returns the adjusted p-value of each hypothesis: the
 smallest level \eqn{\alpha} at which that hypothesis is among the rejections
-of \code{closedBH()}. Because the rejection set is always the hypotheses with the
+of \code{closedBH()} (capped at the p-value itself by default (\code{cap=TRUE}).
+Because the rejection set is always the hypotheses with the
 smallest p-values, a hypothesis of sorted rank \eqn{k} is rejected at level
 \eqn{\alpha} exactly when \code{closedBH()} returns at least \eqn{k}; the adjusted
 p-value is the smallest such \eqn{\alpha}. Consequently
@@ -51,7 +52,7 @@ p-value is the smallest such \eqn{\alpha}. Consequently
 All of the heavy lifting (the breadth-first traversal over set sizes and the
 built-in \code{next.r} recursion) is performed in C++; these wrappers only sort
 out the user-facing arguments and forward them. \code{closedBH()} runs in
-\eqn{O(m + r^2)} time; \code{closedBH.adjust()} runs in \eqn{O(m^2)} time and
+\eqn{O(m + r^2)} time after sorting; \code{closedBH.adjust()} runs in \eqn{O(m^2)} time and
 \eqn{O(m)} memory.
 }
 \examples{
@@ -68,6 +69,10 @@ sum(padj <= 0.05)             # matches closedBH(p, alpha = 0.05)
 
 }
 \references{
+Goeman, J. (2026).
+A Uniform Improvement of the Benjamini-Hochberg Procedure via e-Closure.
+arXiv preprint arXiv:2606.01854.
+
 Benjamini, Y., & Hochberg, Y. (1995). Controlling the false discovery rate:
 a practical and powerful approach to multiple testing.
 \emph{Journal of the Royal Statistical Society: Series B}, 57(1), 289–300.

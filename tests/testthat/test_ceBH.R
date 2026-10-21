@@ -237,3 +237,18 @@ test_that("scaling all e-values by k is equivalent to scaling alpha by k", {
     closedeBH(e, alpha = 0.05 * k)
   )
 })
+
+test_that("no integer overflow in penalty for large m", {
+  # i_in * (i_in + i_out) exceeds INT_MAX once i_in > 46340. In 0.9.6 this
+  # overflowed, so all-equal e-values just below 1/alpha were wrongly
+  # rejected once m >= ceiling(46340 / c).
+  skip_on_cran()
+  alpha <- 0.05
+  m <- 46387
+  expect_equal(closedeBH(rep(0.999 / alpha, m), alpha = alpha), 0L)
+  expect_equal(closedeBH(rep(0.999 / alpha, m), alpha = alpha, approximate = TRUE), 0L)
+  expect_false(closedeBH(rep(0.999 / alpha, m), set = seq_len(m), alpha = alpha))
+  expect_equal(closedeBH(rep(0.5 / alpha, 92680), alpha = alpha), 0L)
+  # Just above the boundary everything is still rejected
+  expect_equal(closedeBH(rep(1.001 / alpha, m), alpha = alpha), m)
+})

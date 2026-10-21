@@ -1,6 +1,6 @@
 # R wrapper for the C++ closedBH implementation.
 # The _cpp functions (cBH_cpp, cBH_adjust_cpp) are compiled via Rcpp and called
-# here. The next.r function (r.closed) and its helper (r.variant) are built into
+# here. The next.r function (r.closed) is built into
 # the C++ source; these wrappers only forward the user-facing arguments.
 
 #' Closed Benjamini-Hochberg procedure for FDR control
@@ -18,7 +18,8 @@
 #'
 #' `closedBH.adjust()` returns the adjusted p-value of each hypothesis: the
 #' smallest level \eqn{\alpha} at which that hypothesis is among the rejections
-#' of `closedBH()`. Because the rejection set is always the hypotheses with the
+#' of `closedBH()` (capped at the p-value itself by default (`cap=TRUE`). 
+#' Because the rejection set is always the hypotheses with the
 #' smallest p-values, a hypothesis of sorted rank \eqn{k} is rejected at level
 #' \eqn{\alpha} exactly when `closedBH()` returns at least \eqn{k}; the adjusted
 #' p-value is the smallest such \eqn{\alpha}. Consequently
@@ -28,7 +29,7 @@
 #' All of the heavy lifting (the breadth-first traversal over set sizes and the
 #' built-in `next.r` recursion) is performed in C++; these wrappers only sort
 #' out the user-facing arguments and forward them. `closedBH()` runs in
-#' \eqn{O(m + r^2)} time; `closedBH.adjust()` runs in \eqn{O(m^2)} time and
+#' \eqn{O(m + r^2)} time after sorting; `closedBH.adjust()` runs in \eqn{O(m^2)} time and
 #' \eqn{O(m)} memory.
 #'
 #' @param p Numeric vector of p-values, one per hypothesis. Values must lie

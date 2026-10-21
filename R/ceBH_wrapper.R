@@ -108,7 +108,7 @@ NULL
 #' arXiv preprint arXiv:2509.02517.
 #'
 #' @seealso
-#' [p.adjust()] for non-simultaneous multiple testing corrections.
+#' [closedBH()], [closedBY()], [closedBY()], [eClosure]
 #'
 #' @export
 closedeBH <- function(e, set = NULL, alpha = 0.05, approximate = FALSE) {
@@ -116,7 +116,7 @@ closedeBH <- function(e, set = NULL, alpha = 0.05, approximate = FALSE) {
   
   if (!is.null(set)) {
     # Check if a specific set is mean consistent
-    set_indices <- (1:m)[set]
+    set_indices <- seq_len(m)[set]
     r <- length(set_indices)
     
     # Empty set is always mean consistent

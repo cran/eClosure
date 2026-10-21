@@ -90,7 +90,7 @@ NULL
 #' (2025). Bringing closure to false discovery rate control.
 #' arXiv:2509.02517.
 #'
-#' @seealso [closedBY()], [closedeBH()]
+#' @seealso [closedBH()], [closedBY()], [closedeBH()], [eClosure]
 #'
 #' @export
 closedSu <- function(p, set = NULL, alpha = 0.05, approximate = FALSE) {

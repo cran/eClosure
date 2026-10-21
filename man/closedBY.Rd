@@ -50,7 +50,7 @@ The closed BY procedure is based on a local e-value for every
 intersection hypothesis. A set \eqn{R} of hypotheses is closedBY-significant —
 and therefore a valid simultaneous rejection — if and only if, for every
 subset \eqn{S \subseteq [m]}, the local e-value exceeds
-\eqn{|S \cap R|/|R|\alpha}.
+\eqn{|S \cap R|/(|R|\alpha)}.
 This guarantees post-hoc FDR control: you may report any closedBY-significant
 set as your discovery set without inflating the FDR above \eqn{\alpha},
 even if the choice of set was data-driven.
@@ -112,7 +112,5 @@ Bringing closure to false discovery rate control: A general principle for
 multiple testing. arXiv preprint arXiv:2509.02517.
 }
 \seealso{
-\code{\link[=p.adjust]{p.adjust()}} for standard p-value-based non-simultaneous multiple testing corrections,
-including the BY procedure (\code{method = "BY"}).
-\code{\link[=closedeBH]{closedeBH()}} for the analogous procedure based on e-values.
+\code{\link[=closedBH]{closedBH()}}, \code{\link[=closedSu]{closedSu()}}, \code{\link[=closedeBH]{closedeBH()}}, \link{eClosure}
 }

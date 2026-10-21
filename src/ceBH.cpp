@@ -42,7 +42,7 @@ inline double compute_target(const NumericVector& cum_e,
   double sum_e = cum_e[set_offset + i_in] - cum_e[set_offset] + cum_e[i_out];
   
   // Penalty is quadratic: i_in * (i_in + i_out) / (r * alpha)
-  double penalty = i_in * (i_in + i_out) * div_ra;
+  double penalty = static_cast<double>(i_in) * (i_in + i_out) * div_ra;
   
   return sum_e - penalty;
 }

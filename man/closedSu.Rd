@@ -79,5 +79,5 @@ Xu, Z., Solari, A., Fischer, L., de Heide, R., Ramdas, A., & Goeman, J.
 arXiv:2509.02517.
 }
 \seealso{
-\code{\link[=closedBY]{closedBY()}}, \code{\link[=closedeBH]{closedeBH()}}
+\code{\link[=closedBH]{closedBH()}}, \code{\link[=closedBY]{closedBY()}}, \code{\link[=closedeBH]{closedeBH()}}, \link{eClosure}
 }
